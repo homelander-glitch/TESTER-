@@ -3,46 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Lab Pro</title>
+    <title>Hardware Lab | Pro Suite</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="terminal-bar">SYSTEM_DIAGNOSTIC_V4.0</div>
+<header>
+    <h1>HARDWARE<span class="accent">LAB</span></h1>
+    <p>Core Diagnostic Utility v5.0</p>
+</header>
 
 <main class="container">
-    <section class="card">
-        <div class="header-label">NETWORK_INTEGRITY</div>
-        <div class="speed-status" id="net-status">Status: Idle</div>
-        <div class="speed-grid">
-            <div class="speed-box">
-                <small>DOWNLOAD</small>
-                <div id="dl-val">0.0</div><span class="u">Mbps</span>
-            </div>
-            <div class="speed-box">
-                <small>UPLOAD</small>
-                <div id="ul-val">0.0</div><span class="u">Mbps</span>
-            </div>
+    <div id="main-menu" class="menu-grid">
+        <div class="menu-item" onclick="showTool('internet')">
+            <span class="icon">🌐</span>
+            <h3>Internet Test</h3>
         </div>
-        <button onclick="runFullNetworkTest()" id="net-btn" class="main-btn">RUN SEQUENTIAL TEST</button>
-    </section>
+        <div class="menu-item" onclick="showTool('speaker')">
+            <span class="icon">🔊</span>
+            <h3>Speaker Clean</h3>
+        </div>
+        <div class="menu-item" onclick="showTool('camera')">
+            <span class="icon">📷</span>
+            <h3>Camera Test</h3>
+        </div>
+    </div>
 
-    <section class="card">
-        <div class="header-label">ACOUSTIC_FLUSH</div>
-        <div class="speaker-controls">
-            <button onclick="startSpeaker()" id="spk-start" class="main-btn">START CLEAN</button>
-            <button onclick="stopSpeaker()" id="spk-stop" class="main-btn btn-red" disabled>STOP</button>
+    <div id="tool-internet" class="tool-card hidden">
+        <button class="back-btn" onclick="showMenu()">← Back</button>
+        <h2>Network Throughput</h2>
+        <div class="speed-row">
+            <div class="stat"><span>DL</span><h4 id="dl">0.0</h4><small>Mbps</small></div>
+            <div class="stat"><span>UL</span><h4 id="ul">0.0</h4><small>Mbps</small></div>
         </div>
-        <div class="progress-bg"><div id="p-bar" class="p-fill"></div></div>
-    </section>
+        <button id="net-btn" class="action-btn" onclick="runNetTest()">START SEQUENTIAL TEST</button>
+    </div>
 
-    <section class="card">
-        <div class="header-label">OPTICAL_SENSORS</div>
-        <div class="cam-box">
-            <video id="camera" autoplay playsinline muted></video>
+    <div id="tool-speaker" class="tool-card hidden">
+        <button class="back-btn" onclick="showMenu()">← Back</button>
+        <h2>Sonic Speaker Flush</h2>
+        <div class="sound-wave">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
         </div>
-        <button onclick="toggleCamera()" class="main-btn">SWITCH FRONT/BACK</button>
-    </section>
+        <div class="controls">
+            <button id="spk-start" class="action-btn" onclick="startSpeaker()">START 30S PULSE</button>
+            <button id="spk-stop" class="action-btn stop-btn" onclick="stopSpeaker()" disabled>STOP</button>
+        </div>
+    </div>
+
+    <div id="tool-camera" class="tool-card hidden">
+        <button class="back-btn" onclick="showMenu()">← Back</button>
+        <h2>Sensor Alignment</h2>
+        <div class="cam-view">
+            <video id="vid" autoplay playsinline muted></video>
+        </div>
+        <div class="cam-btns">
+            <button class="action-btn" onclick="initCam('user')">FRONT CAM</button>
+            <button class="action-btn" onclick="initCam('environment')">BACK CAM</button>
+        </div>
+    </div>
 </main>
 
 <script src="script.js"></script>
