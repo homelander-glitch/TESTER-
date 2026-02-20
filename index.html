@@ -3,47 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Diagnostics | Lab</title>
+    <title>Hardware Lab | Diagnostic Suite</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Mobile Hardware <span class="accent">Tester</span></h1>
-        <p class="subtitle">Diagnostic Tool v1.0.4</p>
-    </header>
+<div class="terminal-header">
+    <div class="status-dot"></div>
+    <span>HARDWARE_DIAGNOSTIC_KERNEL_V3.0.1</span>
+</div>
 
-    <main class="container">
-        <section class="card">
-            <div class="card-header">
-                <span class="icon">🌐</span>
-                <h3>Network Latency</h3>
+<main class="container">
+    <section class="card">
+        <div class="label">MODULE: NETWORK_THROUGHPUT</div>
+        <div class="data-grid">
+            <div class="metric">
+                <span class="type">DOWNLOAD</span>
+                <span id="dl-speed" class="value">0.00</span><span class="unit">Mbps</span>
             </div>
-            <div id="speed-display" class="data-field">System Ready</div>
-            <button onclick="testSpeed()" class="btn">Execute Ping Test</button>
-        </section>
+            <div class="metric">
+                <span class="type">UPLOAD</span>
+                <span id="ul-speed" class="value">0.00</span><span class="unit">Mbps</span>
+            </div>
+        </div>
+        <div class="progress-container"><div id="net-progress" class="bar"></div></div>
+        <button onclick="runNetworkTest()" id="net-btn" class="btn-main">EXECUTE SPEED_TEST</button>
+    </section>
 
-        <section class="card">
-            <div class="card-header">
-                <span class="icon">🔊</span>
-                <h3>Frequency Flush</h3>
+    <section class="card">
+        <div class="label">MODULE: SONIC_FLUSH</div>
+        <div class="display-area">
+            <div id="audio-timer">30s</div>
+            <div id="audio-visualizer">
+                <div class="wave"></div><div class="wave"></div><div class="wave"></div>
             </div>
-            <div class="data-field" id="audio-status">Idle</div>
-            <button onclick="cleanSpeaker()" class="btn">Start Sonic Sweep</button>
-        </section>
+        </div>
+        <button onclick="cleanSpeaker()" id="audio-btn" class="btn-main">START DEEP_CLEAN</button>
+    </section>
 
-        <section class="card">
-            <div class="card-header">
-                <span class="icon">📷</span>
-                <h3>Optical Sensor</h3>
-            </div>
-            <div class="video-container">
-                <video id="camera" autoplay playsinline></video>
-            </div>
-            <button onclick="startCamera()" class="btn btn-outline">Initialize Camera</button>
-        </section>
-    </main>
+    <section class="card">
+        <div class="label">MODULE: OPTICAL_INTEGRITY</div>
+        <div class="cam-viewport">
+            <video id="camera" autoplay playsinline muted></video>
+            <canvas id="cam-overlay"></canvas>
+        </div>
+        <button onclick="startCamera()" class="btn-main btn-alt">INITIALIZE_SENSOR</button>
+    </section>
+</main>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
