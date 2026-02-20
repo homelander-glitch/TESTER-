@@ -1,66 +1,39 @@
 :root {
-    --bg: #050505;
-    --accent: #00d4ff; /* Cyan Tech Blue */
-    --card-bg: #111;
-    --text: #ffffff;
-    --border: #222;
+    --bg: #0d1117;
+    --accent: #58a6ff;
+    --card-bg: #161b22;
+    --text: #c9d1d9;
+    --border: #30363d;
 }
 
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Consolas', monospace;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.terminal-bar {
-    width: 100%;
-    background: var(--accent);
-    color: #000;
-    font-weight: bold;
-    font-size: 12px;
-    padding: 5px 20px;
-    margin-bottom: 20px;
-}
-
-.container { width: 90%; max-width: 450px; }
-
-.card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-}
-
-.header-label { color: var(--accent); font-size: 11px; margin-bottom: 15px; }
+.terminal-bar { width: 100%; background: #21262d; color: var(--accent); font-size: 10px; padding: 8px 20px; border-bottom: 1px solid var(--border); }
+.container { width: 90%; max-width: 400px; padding-top: 20px; }
+.card { background: var(--card-bg); border: 1px solid var(--border); padding: 20px; margin-bottom: 15px; border-radius: 8px; }
+.header-label { color: #8b949e; font-size: 11px; margin-bottom: 15px; font-weight: bold; }
+.speed-status { font-size: 12px; margin-bottom: 10px; color: var(--accent); }
 
 .speed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+.speed-box { background: #0d1117; padding: 15px; border: 1px solid var(--border); border-radius: 6px; }
+.speed-box div { font-size: 22px; font-weight: bold; color: #fff; display: inline; }
+.u { font-size: 10px; color: #8b949e; margin-left: 4px; }
 
-.speed-box { background: #000; padding: 15px; border: 1px solid var(--border); }
+.main-btn { width: 100%; background: #238636; border: none; color: white; padding: 12px; cursor: pointer; border-radius: 6px; font-weight: bold; transition: 0.2s; margin-top: 5px;}
+.main-btn:disabled { background: #161b22; color: #484f58; cursor: not-allowed; border: 1px solid var(--border); }
+.btn-red { background: #da3633; margin-top: 10px; }
 
-.speed-box div { font-size: 24px; font-weight: bold; display: inline; }
+.speaker-controls { display: flex; flex-direction: column; gap: 5px; }
+.progress-bg { height: 6px; background: #0d1117; margin-top: 15px; border-radius: 3px; overflow: hidden; }
+.p-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.1s linear; }
 
-.main-btn {
-    width: 100%;
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 12px;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: bold;
-}
-
-.main-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-.timer-display { font-size: 40px; text-align: center; margin-bottom: 10px; }
-
-.progress-bg { height: 4px; background: #222; margin-bottom: 15px; }
-.p-fill { height: 100%; background: var(--accent); width: 0%; }
-
-.cam-box { width: 100%; height: 250px; background: #000; margin-bottom: 10px; overflow: hidden; }
+.cam-box { width: 100%; height: 220px; background: #000; margin-bottom: 10px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
 video { width: 100%; height: 100%; object-fit: cover; }
