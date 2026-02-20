@@ -3,42 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Lab v3.0</title>
+    <title>Hardware Lab Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="terminal-bar">SYSTEM_DIAGNOSTIC_ROOT_USER</div>
+<div class="terminal-bar">SYSTEM_DIAGNOSTIC_V4.0</div>
 
 <main class="container">
     <section class="card">
-        <div class="header-label">NET_SPEED_TEST</div>
+        <div class="header-label">NETWORK_INTEGRITY</div>
+        <div class="speed-status" id="net-status">Status: Idle</div>
         <div class="speed-grid">
             <div class="speed-box">
                 <small>DOWNLOAD</small>
-                <div id="dl-val">0.0</div><span>Mbps</span>
+                <div id="dl-val">0.0</div><span class="u">Mbps</span>
             </div>
             <div class="speed-box">
                 <small>UPLOAD</small>
-                <div id="ul-val">0.0</div><span>Mbps</span>
+                <div id="ul-val">0.0</div><span class="u">Mbps</span>
             </div>
         </div>
-        <button onclick="runNetworkDiagnostics()" id="net-btn" class="main-btn">RUN TEST</button>
+        <button onclick="runFullNetworkTest()" id="net-btn" class="main-btn">RUN SEQUENTIAL TEST</button>
     </section>
 
     <section class="card">
-        <div class="header-label">SONIC_SPEAKER_CLEANER</div>
-        <div class="timer-display" id="timer">30.0s</div>
-        <div class="progress-bg"><div id="p-bar" class="p-fill"></div></div>
-        <button onclick="deepCleanSpeaker()" id="spk-btn" class="main-btn">START 30s SEQUENCE</button>
-    </section>
-
-    <section class="card">
-        <div class="header-label">OPTICAL_SENSOR_BOOT</div>
-        <div class="cam-box">
-            <video id="camera" autoplay playsinline></video>
+        <div class="header-label">ACOUSTIC_FLUSH</div>
+        <div class="speaker-controls">
+            <button onclick="startSpeaker()" id="spk-start" class="main-btn">START CLEAN</button>
+            <button onclick="stopSpeaker()" id="spk-stop" class="main-btn btn-red" disabled>STOP</button>
         </div>
-        <button onclick="startCamera()" class="main-btn">ACTIVATE CAMERA</button>
+        <div class="progress-bg"><div id="p-bar" class="p-fill"></div></div>
+    </section>
+
+    <section class="card">
+        <div class="header-label">OPTICAL_SENSORS</div>
+        <div class="cam-box">
+            <video id="camera" autoplay playsinline muted></video>
+        </div>
+        <button onclick="toggleCamera()" class="main-btn">SWITCH FRONT/BACK</button>
     </section>
 </main>
 
