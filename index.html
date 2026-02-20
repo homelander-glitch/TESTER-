@@ -3,51 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Lab | Diagnostic Suite</title>
+    <title>Hardware Lab v3.0</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="terminal-header">
-    <div class="status-dot"></div>
-    <span>HARDWARE_DIAGNOSTIC_KERNEL_V3.0.1</span>
-</div>
+<div class="terminal-bar">SYSTEM_DIAGNOSTIC_ROOT_USER</div>
 
 <main class="container">
     <section class="card">
-        <div class="label">MODULE: NETWORK_THROUGHPUT</div>
-        <div class="data-grid">
-            <div class="metric">
-                <span class="type">DOWNLOAD</span>
-                <span id="dl-speed" class="value">0.00</span><span class="unit">Mbps</span>
+        <div class="header-label">NET_SPEED_TEST</div>
+        <div class="speed-grid">
+            <div class="speed-box">
+                <small>DOWNLOAD</small>
+                <div id="dl-val">0.0</div><span>Mbps</span>
             </div>
-            <div class="metric">
-                <span class="type">UPLOAD</span>
-                <span id="ul-speed" class="value">0.00</span><span class="unit">Mbps</span>
+            <div class="speed-box">
+                <small>UPLOAD</small>
+                <div id="ul-val">0.0</div><span>Mbps</span>
             </div>
         </div>
-        <div class="progress-container"><div id="net-progress" class="bar"></div></div>
-        <button onclick="runNetworkTest()" id="net-btn" class="btn-main">EXECUTE SPEED_TEST</button>
+        <button onclick="runNetworkDiagnostics()" id="net-btn" class="main-btn">RUN TEST</button>
     </section>
 
     <section class="card">
-        <div class="label">MODULE: SONIC_FLUSH</div>
-        <div class="display-area">
-            <div id="audio-timer">30s</div>
-            <div id="audio-visualizer">
-                <div class="wave"></div><div class="wave"></div><div class="wave"></div>
-            </div>
-        </div>
-        <button onclick="cleanSpeaker()" id="audio-btn" class="btn-main">START DEEP_CLEAN</button>
+        <div class="header-label">SONIC_SPEAKER_CLEANER</div>
+        <div class="timer-display" id="timer">30.0s</div>
+        <div class="progress-bg"><div id="p-bar" class="p-fill"></div></div>
+        <button onclick="deepCleanSpeaker()" id="spk-btn" class="main-btn">START 30s SEQUENCE</button>
     </section>
 
     <section class="card">
-        <div class="label">MODULE: OPTICAL_INTEGRITY</div>
-        <div class="cam-viewport">
-            <video id="camera" autoplay playsinline muted></video>
-            <canvas id="cam-overlay"></canvas>
+        <div class="header-label">OPTICAL_SENSOR_BOOT</div>
+        <div class="cam-box">
+            <video id="camera" autoplay playsinline></video>
         </div>
-        <button onclick="startCamera()" class="btn-main btn-alt">INITIALIZE_SENSOR</button>
+        <button onclick="startCamera()" class="main-btn">ACTIVATE CAMERA</button>
     </section>
 </main>
 
