@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Diagnostics | Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Mobile Hardware <span class="accent">Tester</span></h1>
+        <p class="subtitle">Diagnostic Tool v1.0.4</p>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <div class="card-header">
+                <span class="icon">🌐</span>
+                <h3>Network Latency</h3>
+            </div>
+            <div id="speed-display" class="data-field">System Ready</div>
+            <button onclick="testSpeed()" class="btn">Execute Ping Test</button>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <span class="icon">🔊</span>
+                <h3>Frequency Flush</h3>
+            </div>
+            <div class="data-field" id="audio-status">Idle</div>
+            <button onclick="cleanSpeaker()" class="btn">Start Sonic Sweep</button>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <span class="icon">📷</span>
+                <h3>Optical Sensor</h3>
+            </div>
+            <div class="video-container">
+                <video id="camera" autoplay playsinline></video>
+            </div>
+            <button onclick="startCamera()" class="btn btn-outline">Initialize Camera</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
